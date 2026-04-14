@@ -92,6 +92,7 @@ class Profile:
         self.length += 1
 
     def __add__(self, other):
+        assert self.length == other.length, "Profiles must have the same length to merge"
         # Create a blank profile of the same length
         merged          = Profile([], length=self.length, alphabet=self.alphabet)
         # Add count matrices element-wise
@@ -111,3 +112,24 @@ class Profile:
 
     def __repr__(self):
         return pd.DataFrame(self.freqs, index=self.alphabet).to_string()
+
+
+# ── TASK 2 — OUR CODE ───────────────────────────────────────────────────────── 
+def delta_profile(col_v, col_w, scoring_matrix):
+    # Expected substitution score between two profile columns: col_v^T * M * col_w
+    return col_v @ scoring_matrix @ col_w
+ 
+# Default scoring function using BLOSUM62
+scoring = lambda col1, col2: delta_profile(col1, col2, BLOSUM62)
+ 
+ 
+# ── TASK 3 — OUR CODE ───────────────────────────────────────────────────────── 
+if __name__ == "__main__":
+    # Verify dp() works with Profile objects
+    pa = Profile(['ACDE'])
+    pb = Profile(['ADE'])
+    s, b = dp(pa, pb, scoring, gap=-1)
+    print("Score matrix s:\n", s)
+    print("Backtrack matrix b:\n", b)
+    print("Final alignment score:", s[len(pa), len(pb)])
+ 
