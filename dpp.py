@@ -2,7 +2,7 @@ from msa.constants import BLOSUM62
 from msa.dp_core import dp
 from msa.profile import Profile
 from msa.scoring import delta_profile, scoring
-from msa.alignment import alignProfiles, align
+from msa.alignment import  align
 from msa.distance import distance_matrix
 from msa.progressive import progressive_align
 

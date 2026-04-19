@@ -5,7 +5,7 @@ from .profile import Profile
 from .dp_core import dp
 from .scoring import scoring
 
-# ── TASK 5 — OUR CODE ─────────────────────────────────────────────────────────
+# TASK 5 
 def distance_matrix(sequences, scoring=scoring, gap=-1):
     n = len(sequences)
 

@@ -8,7 +8,6 @@ from .scoring import scoring
 
 
 #Task 6! (yippee)
-
 def progressive_align(sequences, scoring=scoring, gap=-1):
     #Edge cases
     if len(sequences) == 0:

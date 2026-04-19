@@ -1,6 +1,6 @@
 from .constants import BLOSUM62
 
-# ── TASK 2 — OUR CODE ─────────────────────────────────────────────────────────
+#TASK 2 
 def delta_profile(col_v, col_w, scoring_matrix):
     # Score between two profile columns using the bilinear form:
     # delta = col_v^T * scoring_matrix * col_w
