@@ -3,7 +3,7 @@ import copy
 from .dp_core import dp
 from .scoring import scoring
 
-# ── TASK 4 — OUR CODE ─────────────────────────────────────────────────────────
+#  TASK 4 
 def alignProfiles(profile1, profile2, b):
     # Work on deep copies so we never mutate the original profiles.
     # Deep copy means every nested object (counts matrix, sequences list)
@@ -42,12 +42,14 @@ def alignProfiles(profile1, profile2, b):
         if move == 0:
             # Gap in profile2: insert a '-' column into p2 at current pos.
             # n = p1.n_seq because that many sequences face this gap.
-            p2.insert_gap_column(pos, n=p1.n_seq)
+            # p2.insert_gap_column(pos, n=p1.n_seq)
+            p2.insert_gap_column(pos, n=p2.n_seq)
             pos += 1
         elif move == 1:
             # Gap in profile1: insert a '-' column into p1 at current pos.
             # n = p2.n_seq because that many sequences face this gap.
-            p1.insert_gap_column(pos, n=p2.n_seq)
+            # p1.insert_gap_column(pos, n=p2.n_seq)
+            p1.insert_gap_column(pos, n=p1.n_seq)
             pos += 1
         else:
             # Match/mismatch: both columns align, no gap needed.
